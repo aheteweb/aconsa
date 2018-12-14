@@ -1,0 +1,22 @@
+---
+layout: default
+title: 404
+alttitle: 404
+permalink: /es/404.html
+altpermalink: /404.html
+lang: es
+---
+
+<div class="container text-center">
+	<h3>La página solicitada no existe.</h3>
+	<h3>Los siguientes enlaces podrian resultarle utiles:</h3>
+	<ul class="list-unstyled">
+		{% for item in site.pages %}
+			{% if item.lang == 'es' and item.permalink != '/es/404.html' and item.title != 'admin' %}
+				<li class="nav-item">
+		  		<a class="nav-link" href="{{ item.altpermalink | prepend: site.url }}">{{ item.alttitle | upcase }}</a>
+		  	</li>
+		  {% endif %}
+		{% endfor %}	
+	</ul>
+</div>

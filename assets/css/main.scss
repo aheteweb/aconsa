@@ -1,0 +1,46 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Our variables
+$base-font-family: "Popins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headers-font-family: "Dosis", "Popins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-size:   1.1rem;
+$base-font-weight: 300;
+$bold-font-weight: 500;
+$small-font-size:  $base-font-size * 0.675;
+$big-font-size:  $base-font-size * 2.25;
+$base-line-height: 1.5;
+
+$navigation-height: 63px;
+$text-color:       #333;
+$brand-color:      #016DAD;
+$brand-color-light: lighten($brand-color, 40%);
+$brand-color-dark:  darken($brand-color, 25%);
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+//@mixin media-query($device) {
+//    @media screen and (max-width: $device) {
+//        @content;
+//    }
+//}
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "base"
+;

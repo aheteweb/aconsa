@@ -1,0 +1,22 @@
+title:
+  en: Aconsa
+  es: Aconsa
+description:
+  en: We export fresh sea products.
+  es: Exportamos productos frescos del mar.
+emails:
+  - sales@aconsaca.com
+address:
+  - 'Carretera Cumaná-Cumanacoa, Km 5<br>Cumaná-Estado Sucre<br>ZIP 6101<br>Venezuela'
+phones:
+  - +58 293 414 3486
+  - +58 424 892 4880
+baseurl: ''
+url: 'http://aconsaca.com/'
+twitter: ''
+facebook: ''
+instagram: ''
+markdown: kramdown
+encoding: UTF-8
+collections:
+  - products

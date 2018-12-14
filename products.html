@@ -1,0 +1,34 @@
+---
+layout: default
+title: Products
+alttitle: Productos
+permalink: /products
+altpermalink: /es/productos
+lang: en
+---
+<div data-options="" data-mhsection="page_title" class=""><div class="container"><h1 class="page-title">{{ page.title | upcase}}</h1></div></div><div data-options="" data-mhsection="text" class=""><div class="container"> <div data-editable="" data-lang="en" data-name="1522418820091"><p>
+    In&nbsp;<strong>Aconsa</strong>&nbsp;we process and export fresh and frozen fish and seafood, both imported and domestic.
+</p>
+<p>
+    All of our products are processed in our owned and strategically located facilities near the fishing area, products are subject to strict quality controls which allows us to guarantee the highest quality and freshness in them.
+</p>
+<h4>
+    The following are some of the products that we commercialize:
+</h4>
+<p>
+    (To know the sizes and seasons of each of them, do not hesitate to contact us.)
+</p></div></div></div><div data-options="" data-mhsection="products"><div class="bg"></div><div class="container"><div class="jekyll-content"> <div class="row">
+		{% for item in site.products %}
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<div class="card">
+					<div class="card-header">{% if page.lang == "en" %}{{ item.title }}{% else %}{{ item.titulo }}{% endif %}</div>
+					<div class="card-body">
+						<img src="{{ item.image }}" class="img-fluid" alt="{% if page.lang == &quot;en&quot; %}{{ item.title }}{% else %}{{ item.titulo }}{% endif %}">
+					</div>
+					<div class="card-footer">
+						<p><b>{% if page.lang == "en" %}Scientific name{% else %}Nombre cientifico{% endif %}: </b>{{ item.scientific }}</p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}			
+	</div></div></div></div>

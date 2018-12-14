@@ -1,0 +1,919 @@
+	
+/* General */
+	body {
+		padding-top: $navigation-height;
+	}
+	b {
+		font-weight: bold!important;
+	}
+	#mhContent {
+		min-height: 57vh;
+		> div:first-of-type:not([data-mhsection="header_slider"]):not(.bg-image):not([data-mhsection="page_title"]) {
+    	margin-top: 50px; 
+  	}
+		.bg-image + .bg-image,
+		.bg-image + [data-mhsection=header_slider] {
+			margin-top: -50px	
+		}
+		.bg-image {
+			position: relative;
+		}
+  }
+	body {
+		font-family: $base-font-family;
+		font-weight: $base-font-weight;
+		font-size: $base-font-size;
+		line-height: $base-line-height;
+		color: $text-color;
+		overflow-x: hidden;
+	}
+	@media (max-width: 992px){
+		.container {
+		  max-width: 95%;
+		}
+	}	
+	h1,.h1,	h2,.h2,	h3,.h3,	h4,.h4,	h5,.h5,	h6,.h6 {
+		font-family: $headers-font-family;
+	}
+	a[href^="tel:"] {
+		color: inherit;
+	}
+	.btn-brand {
+		background: $brand-color;
+		color: #fff;
+		border-color: $brand-color;
+	}
+	hr.fish {
+		position: relative;
+		margin: 40px 0;
+		&:before, &:after {
+			position: absolute;
+			background: #fff;
+			margin-left: calc(50% - 18.5px);			
+		};
+		&:before {
+			content: ' ';
+	    width: 40px;
+	    height: 20px;
+	    top: -10.6px;
+		}
+		&:after {
+			content: url(https://res.cloudinary.com/aconsa/image/upload/v1522338737/mhadmin/mh_hr.png);
+			top: -10px;
+			opacity: 0.5;
+		};
+	}
+	body > .mhloading {
+		position: fixed;
+		height: 100vh;
+	}
+	.mhloading {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		background: rgba(0,128,128, 0.9);
+		color: #fff;
+		top: 0;
+		left: 0;
+		z-index: 100000;
+		.icon {
+			position: absolute;
+		  font-size: 5rem;
+		  @include vertical-align();
+		}	
+		&.element	{
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+		}
+	}	
+	[data-editable] img {
+		max-width: 100%;
+		display: block;
+		margin: auto;
+		margin-bottom: 1rem;
+	}
+	
+/* Navigation */
+	#mhNavbar {
+		&.calculating * {
+			opacity: 0;
+		}
+		font-family: $headers-font-family;
+		font-size: 1.2em;
+		font-weight: $bold-font-weight;
+		background: #fff;
+		-webkit-box-shadow: 0px 3px 5px rgba(50, 50, 50, 0.55);
+    -moz-box-shadow:    0px 3px 5px rgba(50, 50, 50, 0.55);
+    box-shadow:         0px 3px 5px rgba(50, 50, 50, 0.55);
+    height: $navigation-height;
+    * {
+    	color: $brand-color;
+    	transition: all .5s;
+    }
+		.navbar-toggle {
+			position: absolute;
+			right: 11px;
+			top: 10px;
+			display: none;
+			transition: all .5s;
+			z-index: 1020;
+			color: rgb(2,109,171);
+		}
+		.name {
+			opacity: 0;
+			transition: all .5s;
+		  position: absolute;
+		  left: 50%;
+		  top: 12px;
+		  .logo {
+				position: absolute;
+				left: -38px;
+				display: block;
+		    height: 62px;
+		    width: 75px;
+		    background: #fff url(https://res.cloudinary.com/aconsa/image/upload/v1519172668/Home/mh_logo.png) no-repeat center top;
+		    background-size: calc(100% - 10px);
+			}
+			img {
+				opacity: 0;
+				margin-left: 70px;
+		    max-width: 90px;
+		    margin-top: -7px;
+		    z-index: -10;
+			}
+			&:before {
+				content: '';
+				width: 75px;
+				height: 15px;
+				position: absolute;
+				background: rgba(255,255,255,1);
+				top: 49px;
+				left: -37px;
+				-webkit-box-shadow: 0px 3px 3px rgba(50, 50, 50, 0.45);
+		    -moz-box-shadow:    0px 3px 3px rgba(50, 50, 50, 0.45);
+		    box-shadow:         0px 3px 3px rgba(50, 50, 50, 0.45);	
+			}
+		}
+		.navleftside {
+			position: absolute;
+			right: 50%;
+		}
+		.navrightside {
+			position: absolute;
+			left: 50%;
+		}
+		&.scrolled {
+			.name {
+				opacity: 1;
+			}
+			.navleftside {
+				right: calc(50% + 37.5px);
+			}	
+			.navrightside {
+				left: calc(50% + 37.5px);
+			}					
+		}
+		.lang {
+			a {
+				padding-top: 0;
+			}
+		}
+		&.mobile {
+			.navbar-toggle {
+				display: block;
+			}
+			.name {
+				opacity: 1;
+			}
+			.navbar-collapse {
+				display: block!important;
+				position: absolute;
+			  top: 0;
+			  height: 100vh;
+			  width: 50vw;
+			  background-color: rgba(2, 109, 171, 0.9);
+			  padding-top: 50px;
+			  right: -56%;
+			  overflow: hidden;
+			  transition: all .5s;
+			  * {
+					display: block;
+					position: initial;
+					color: #fff;
+				}
+			}
+			&.open {
+				.navbar-toggle i{
+					color: #fff;
+				}
+				.navbar-collapse {
+					right: 0;
+				}
+				.name {
+					left: 0;
+					&:before {
+						display: none;
+					}
+					.logo {
+						left: 0;
+						height: 38px;
+					}
+					img {
+						z-index: 1;
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+/* Footer */
+	#mhFooter {
+		margin-top: 30px;
+		padding: 20px 0 0;
+		border-top: 5px solid $brand-color;
+		font-size: 15px;
+		position: relative;
+		&::after {
+	    content: "";
+	    background: url(https://res.cloudinary.com/aconsa/image/upload/v1519172653/mhadmin/mh_fishnet.jpg);
+	    opacity: 0.07;
+	    top: 0;
+	    right: 0;
+	    position: absolute;
+	    z-index: -1;
+	    height: 100%;
+	    width: 100%;  
+		}
+		.col-md {
+			padding-bottom: 20px;
+		}
+		.description {
+			img {
+				width: 55px;
+				vertical-align: baseline;
+    		margin-right: 5px;
+			}
+			border-right: 1px solid rgba(0,0,0,.1);
+		}
+		.links {
+			border-right: 1px solid rgba(0,0,0,.1);
+			ul {
+				-webkit-padding-start: 0;
+				list-style: none;
+			}
+		}
+		hr {
+			margin-top: 0;
+			margin-bottom: 5px;
+		}
+		.copy {
+			font-size:$small-font-size;
+		}
+	}
+	@media (max-width: 768px) {
+		#mhFooter .row div {
+			border: none;
+		}
+	}	
+
+/* Sections */
+	//Padding for sections with background image
+		[data-mhsection] {
+			margin-bottom: 50px;
+			&.bg-image {
+				padding: 50px 0;
+			}
+			> .bg {
+				z-index: -1;
+				position: absolute;
+				top: 0;
+		    width: 100%;
+		    height: 100%;		
+				background: no-repeat center center;
+		    background-size: cover;		    		
+			}
+		}
+		[data-mhsection]:not([data-mhsection="products_preview"]){
+			&.bg-image {
+				text-shadow: 3px 0px 12px rgba(255, 255, 255, 1);
+			}
+			> .bg {
+				opacity: 0.6;
+		    //background: rgb(2,109,171) no-repeat center center;
+		    -webkit-filter: blur(3px);
+		    -moz-filter: blur(3px);
+		    -o-filter: blur(3px);
+		    -ms-filter: blur(3px);
+		    filter: blur(3px);				
+			}			
+		}
+		.bg-image + .bg-image,
+		[data-mhsection="header_slider"] + .bg-image,
+		.bg-image + footer {
+			margin-top: -50px;
+		}
+		[data-mhsection="text"], [data-mhsection="contact_data"]{
+			margin-bottom: 0;
+		}
+
+	// text-image | image-text
+		[data-mhsection="text_image"]{
+			text-align: justify;
+			.image {
+				text-align: center;
+			}
+			img {
+				background-color: #fff;
+		    background-clip: border-box;
+		    border: 1px solid rgba(0,0,0,.125);
+		    border-radius: .25rem;
+		    max-height: 350px;
+			}
+		}
+	
+	//Slider
+		[data-mhsection="header_slider"], [data-mhsection="slider"] {
+			.slide {
+				background-size: cover;
+				background-position: center;				
+			}
+			.slide-content {
+				height: calc(90vh - 63px);
+				text-align: center;
+				.content {
+					font-family: 'Dosis', sans-serif;
+					font-weight: 700;
+					display: inline-block;
+					padding: 30px 50px;
+					background-color: rgba(255,255,255,.8);
+					@include vertical-align();
+				}
+			}	
+			.slick-arrow {
+				z-index: 9;
+			}
+			.slick-prev {
+				left: 10px;
+			}
+			.slick-next {
+				right: 10px;
+			}
+			.slick-next, .slick-prev {
+				width: 30px;
+				height: 30px;
+			}
+			.slick-next:before, .slick-prev:before{
+				font-size: 30px;
+				text-shadow: 3px 0px 12px rgba(0, 0, 0, 1);
+			}
+			.slick-dots {
+				display: none;
+				bottom: 6px;
+			}
+			.slick-dots li button:before {
+				font-size: 20px;
+				text-shadow: 3px 0px 12px rgba(255, 255, 255, 1);
+			}	
+			@media (max-width: 576px) {
+				.slick-next, .slick-prev {
+					display: none!important;
+				}
+				.slick-dots {
+					display: block;
+				}
+			}				
+		}
+	
+	//Gallery
+		[data-mhsection="gallery_text"] {
+			position: relative;
+			text-align: justify;
+		}
+		.mhgallery {
+			.card {
+				border: none;
+				border-radius: 0;
+				float: left;
+				width: 32%;
+				margin-right: 1%;
+				margin-bottom: 1%;
+				height: 0;
+				padding-bottom: 20%;
+				span {
+					position: absolute;
+			    top: 3px;
+			    left: 3px;
+			    width: calc(99% - 4px);
+			    height: calc(99% - 4px);
+					background: no-repeat center center;
+					background-size: cover;
+					.over {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						background: rgba(0,0,0,0.8);
+						color: #fff;
+						opacity: 0;
+						transition: all .5s;
+						i {
+							position: absolute;
+							@include vertical-align();
+							left: calc(50% - 8px);
+						}
+						&:hover {
+							opacity: 1;
+						}	
+					}	
+				}
+				&:last-child .over {
+					opacity: 0.8;
+				}						
+			}
+			&.big .card:nth-child(1){
+					width: 32%;
+					padding-bottom: 41%;
+					margin-bottom: 0;
+				}		
+		}
+	
+	//Destacados
+		[data-mhsection="destacados"] {
+			margin-top: -20px;
+			.card {
+				margin-top: 20px;
+				height: 0;
+			  overflow: hidden;
+			  padding-bottom: 105%;
+				background: no-repeat center center;
+				background-size: cover;	  
+			  border: none;
+				border-radius: 0;		
+				.card-body {
+					background: rgba(0,0,0,0.8);
+			    color: #fff;
+			    position: absolute;
+			    bottom: calc(-100% + 40px);
+			    height: 100%;
+			    width: 100%;
+			    padding-top: 3px;
+			    transition: all .5s;
+				}	
+				.card-text {
+					font-size: 14px;
+					text-align: justify;
+				}				
+				&:hover .card-body {
+					bottom: 0;
+					overflow: auto;
+				}	
+			}
+		}
+	
+	//Products
+		[data-mhsection="products_preview"], .products {
+			.bg {
+				background-size: cover;
+				color: #fff;
+				padding: 60px 0;				
+			}
+			ul {
+				list-style: none;
+				li {
+					cursor: pointer;
+					border-bottom: 1px solid rgba(255,255,255,0.5);
+			    margin-bottom: 10px;
+			    i {
+						font-size: 14px;
+						float: right;			    	
+			    }				
+				}
+			}
+			&.bg-image {
+				color: #fff;
+			}
+		}
+		#productsModal {
+			color: #333!important;
+			.modal-footer {
+				display: initial;
+		    font-size: 14px;
+		    padding-top: 3px;
+		    padding-bottom: 3px;
+			}
+			.buttons {
+				width: calc(100% - 32px);
+				position: absolute;
+				top: calc(50% - 16px);
+				font-size:30px;
+				color: #fff;
+				text-shadow: 1px 1px 7px rgba(150, 150, 150, 1);
+				.prev	{
+					float: left;
+				}
+				.next	{
+					float: right;
+				}
+			}
+		}
+
+	//Map
+		.map {
+			width: 100%;
+		  height: 0;
+		  margin: 0 auto;
+		  padding-top: 50%;
+		  position: relative;
+		  iframe {
+		    width: 100%;
+		    height: 100%; /* had to specify height/width */
+		  	position: absolute;
+		    top: 0; 
+		    right: 0;
+		    left: 0; 
+		    bottom: 0;   
+		  }
+		}	
+	
+	//Columns
+		[data-mhsection="columns_2"], [data-mhsection="columns_3"] {
+			[data-mhsection] .container {
+				width: 100%;
+				max-width: 100%!important;
+		    padding: 0;
+		    margin: 0;
+			}
+		}
+
+	//Form
+		.g-recaptcha {
+			margin-bottom: 10px;
+		}
+
+	//Contact data
+		[data-mhsection="contact_data"]{
+			font-size: 15px;
+			i {
+				width: 20px;
+				padding-top: 3px;
+				font-size: 14px;
+			}
+		}
+
+	//Page title
+		[data-mhsection="page_title"]{
+			height: 100px;
+			padding-top: 30px;
+			border-bottom: 5px solid rgb(2,109,171);	
+			position: relative;
+			&::after {
+		    content: "";
+		    background: url(https://res.cloudinary.com/aconsa/image/upload/v1519172653/mhadmin/mh_fishnet.jpg);
+		    opacity: 0.07;
+		    top: 0;
+		    right: 0;
+		    position: absolute;
+		    z-index: -1;
+		    height: 100%;
+		    width: 100%;  
+			}
+			h1 {
+				font-weight: 600;
+			}
+			+ .bg-image, + [data-mhsection=header_slider]{
+				margin-top: -50px;
+			}
+		}
+
+	//Product list 
+		[data-mhsection="products"]{
+			padding: 50px 0;
+			.row > div {
+				margin-bottom: 20px;
+			}
+			.card {
+				height: 100%;
+				.card-header {
+					font-weight: bold;
+					padding: 7px 10px;
+    			font-size: 16px;
+    			text-align: center;
+				}
+				.card-body {
+					padding: 0;
+				}
+				.card-header, .card-footer {
+					background: transparent;
+				}				
+				.card-footer {
+					border-top: none;
+					font-size: 13px;
+    			padding: 5px 10px;
+    			p {
+    				margin-bottom: 0;
+    			}
+				}		
+			}
+		}
+	
+.user-actions {
+	margin-top: 70px;
+	.tab-content {
+		padding: 1rem;
+    border: 1px solid #dee2e6;
+    border-top: 0;
+	}
+}
+/*
+
+ Page Header 	
+	.page-header {
+		height: 100px;
+		padding-top: 30px;
+		position: relative;
+		border-bottom: 5px solid rgb(2,109,171);
+	}
+	.page-header::after {
+    content: "";
+    background: url(https://res.cloudinary.com/aconsa/image/upload/v1519172653/Home/mh_fishnet.jpg.jpg);
+    opacity: 0.07;
+    top: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;  
+	}
+	.page-title {
+		font-weight: 800;
+	}
+
+ Slider 
+	
+	
+	.slider-logo {
+		width: 160px;
+		margin: 0 auto 20px;
+	}
+	
+	
+
+ Intro 
+	.intro {
+		padding-top: 50px;
+	}
+	.intro .card {
+		height: 0;
+	  overflow: hidden;
+	  padding-bottom: 100%;
+		background: no-repeat center center;
+		background-size: cover;	  
+	  background-image: attr(data-bg);
+	  margin-bottom: 50px;
+	  margin-top: -20px;
+	}	
+	@media (max-width: 768px){
+		#index .intro {
+	    padding-top: 0;
+	    margin-bottom: 30px;
+		}
+	}
+	
+ Instalaciones 
+	.instalaciones {
+		padding: 50px 0;
+		position: relative;
+		text-shadow: 3px 0px 12px rgba(255, 255, 255, 1);
+		text-align: justify;
+	}
+	.instalaciones::before {
+		opacity: 0.6;
+		content: "";
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: rgb(2,109,171) no-repeat center center;
+		background-image: url(https://res.cloudinary.com/aconsa/image/upload/v1519172681/Home/mh_barcos.jpg.jpg);
+		background-size: cover;		
+		-webkit-filter: blur(3px);
+	  -moz-filter: blur(3px);
+	  -o-filter: blur(3px);
+	  -ms-filter: blur(3px);
+	  filter: blur(3px);
+	}
+	.instalaciones .card {
+		border: none;
+		border-radius: 0;
+		float: left;
+		width: 32%;
+		margin-right: 1%;
+		margin-bottom: 1%;
+		height: 0;
+		padding-bottom: 20%;
+	}
+	.instalaciones .card:nth-child(1){
+		width: 32%;
+		padding-bottom: 41%;
+		margin-bottom: 0;
+	}
+	.instalaciones .card .bg, 
+	.instalaciones .card .over {
+		position: absolute;
+    top: 3px;
+    left: 3px;
+    width: calc(99% - 4px);
+    height: calc(99% - 4px);
+		background: no-repeat center center;
+		background-size: cover;    
+	}
+	.instalaciones .card .over {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: rgba(0,0,0,0.8);
+		color: #fff;
+		opacity: 0;
+		transition: all .5s
+	}
+	.instalaciones .card:last-child .over {
+		opacity: 0.8;
+	}
+	.instalaciones .card .over:hover {
+		opacity: 1;
+	}
+	.instalaciones .card .over i {
+		position: absolute;
+		top: calc(50% - 7px);
+		left: calc(50% - 7px);
+	}
+	@media (max-width: 1100px){
+		.instalaciones .card {
+			padding-bottom: 30%;
+		}
+		.instalaciones .card:nth-child(1){
+			padding-bottom: 61%;
+		}		
+	}	
+	@media (max-width: 992px){
+		.instalaciones .card {
+			width: 21%;
+			padding-bottom: 18%;
+		}
+		.instalaciones .card:nth-child(1){
+			width: 32%;
+			padding-bottom: 37%;
+		}		
+		.instalaciones .card:last-child {
+			display: none;
+		}
+		.instalaciones .card:nth-child(7) .over {
+			opacity: 0.8;
+		}		
+	}		
+	@media (max-width: 575px){
+		.instalaciones .card {
+			width: 32%;
+    	padding-bottom: 23%;
+		}
+		.instalaciones .card:nth-child(1){
+			    width: 32%;
+    padding-bottom: 47%;
+		}		
+		.instalaciones .card:last-child {
+			display: block;
+		}
+		.instalaciones .card:nth-child(7) .over {
+				opacity: 0;
+			}			
+		}		
+	
+ Shoutout 
+		
+
+ Products 
+	.products {
+		background: url(https://res.cloudinary.com/aconsa/image/upload/v1519172684/Home/mh_products2.jpg.jpg) no-repeat center center;
+		background-size: cover;
+		color: #fff;
+		padding: 60px 0;
+	}
+	.products h2 {
+		font-weight: 800;
+	}
+	.products ul li img {
+		display: none;
+	}
+	.products ul {
+		list-style: none;
+	}
+	.products li {
+		border-bottom: 1px solid rgba(255,255,255,0.5);
+    margin-bottom: 10px;
+	}	
+	.products li a {
+		padding: 3px;
+		display: inline-block;
+		width: 100%;
+	}
+	.products li i {
+		font-size: 14px;
+		float: right;
+	}
+	.products a,
+	.products a:hover,
+	.products a:focus {
+		color: #fff;
+		text-decoration: none;
+	}
+
+ Contact 
+	.map {
+		text-align: center;
+	}
+	.map * {
+		max-width: 100%;
+	}
+	.contact {
+		padding-top: 50px;
+	}
+	.contact .details {
+		margin-top: 20px;
+		font-size: 0.9rem;
+	}
+	.contact .details .icon {
+		width: 25px;
+    text-align: center;
+    display: inline-block;
+	}
+
+ lightbox 
+	.ekko-lightbox.modal {
+		display: initial!important;
+	}
+	.ekko-lightbox.modal .modal-dialog {
+		flex: none!important;
+    max-width: 70%!important;
+    margin: 15px auto;
+    height: calc(100vh - 40px);
+	}
+	.ekko-lightbox.modal .modal-content {
+		height: 100%;
+	}	
+	.ekko-lightbox.modal .modal-body {
+		overflow: auto;
+	}
+	.ekko-lightbox.modal .modal-title {
+		font-weight: 800;
+	}	
+	.ekko-lightbox.modal .modal-footer {
+		display: initial;
+		font-size: 14px;
+		padding-top: 3px;
+		padding-bottom: 3px;
+	}
+	.ekko-lightbox.modal .modal-footer p {
+		margin-bottom: 3px;
+	}
+	.ekko-lightbox.modal .modal-footer .phone,
+	.ekko-lightbox.modal .modal-footer .mail {
+		display: inline-block;
+		margin-right: 10px;
+	}
+	.ekko-lightbox.modal .modal-footer .icon {
+		width: 15px;
+		text-align: center;
+		margin-right: 5px;
+		display: inline-block;
+	}
+	.ekko-lightbox-nav-overlay a {
+		opacity: 1;
+		text-shadow: 3px 0px 12px rgba(0, 0, 0, 1);
+	}
+
+ NOSOTROS 
+	.nosotros-slider div {
+		background-size: cover;
+		background-position: center;
+	}
+	.nosotros-slider .slide-content {
+    height: 60vh;
+    padding-top: 25vh;
+    text-align: center;
+	}
+	@media (min-width: 768px) {
+		#nosotros .intro .col-md-6:first-of-type {
+			border-right: 1px solid #dedede;
+		}
+	}		
+
+ PRODUCTS 
+	
+ */

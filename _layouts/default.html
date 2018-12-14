@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body data-permalink="{{ page.permalink }}" data-name="{{ page.name }}" data-lang="{{ page.lang }}">
+
+    {% include menu.html %}
+
+    <div id="mhContent">{{ content }}</div>		
+	  
+		{% include footer.html %}
+
+  </body>
+</html>

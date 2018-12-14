@@ -1,0 +1,50 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title[page.lang] }}{% endif %}</title>
+  {% if page.permalink == '/admin/' %}
+		<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+  {% endif %}
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description[page.lang] }}{% endif %}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <!-- check this
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}"> -->
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Fontawesome -->
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800|Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <!-- Slick css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+  <!-- Lightbox 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">-->
+  <!-- Lightgallery -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.0.2/dist/css/lightgallery.min.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
+  <!-- Recaptcha -->
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+	{% if page.checklang == true %}
+	  <script>
+	  	if(navigator.language.startsWith("es")){
+	  		window.location = "{{ site.baseurl }}es/inicio";
+	  	}
+	  </script>
+  {% endif %}
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122621387-1"></script>
+	<script>
+	  if(!window.location.href.includes("localhost") || !localStorage['webmaster']){
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-122621387-1');
+		}
+	</script>
+</head>

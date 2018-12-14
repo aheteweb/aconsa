@@ -1,0 +1,22 @@
+---
+layout: default
+title: 404
+alttitle: 404
+permalink: /404.html
+altpermalink: /es/404.html
+lang: en
+---
+
+<div class="container text-center">
+	<h3>The requested URL was not found on this server.</h3>
+	<h3>You may find the following links useful:</h3>
+	<ul class="list-unstyled">
+		{% for item in site.pages %}
+			{% if item.lang == 'en' and item.permalink != '/404.html' and item.title != 'admin' %}
+				<li class="nav-item">
+		  		<a class="nav-link" href="{{ item.permalink | prepend: site.url }}">{{ item.title | upcase }}</a>
+		  	</li>
+		  {% endif %}
+		{% endfor %}	
+	</ul>
+</div>

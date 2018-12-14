@@ -1,0 +1,34 @@
+---
+layout: default
+title: Productos
+alttitle: Products
+permalink: /es/productos
+altpermalink: /products
+lang: es
+---
+<div data-options="" data-mhsection="page_title" class=""><div class="container"><h1 class="page-title">{{ page.title | upcase}}</h1></div></div><div data-options="" data-mhsection="text" class=""><div class="container"> <div data-editable="" data-lang="es" data-name="1522418820090"><p>
+    En&nbsp;<strong>Aconsa</strong>&nbsp;procesamos y exportamos pescados y mariscos, frescos y congelados, tanto importados como nacionales.
+</p>
+<p>
+    Nuestros productos son procesados en instalaciones propias, estrategicamente localizadas cerca del area de pesca, y son sometidos a estrictos controles de calidad lo que nos permite garantizar la mayor calidad y frescura en ellos.
+</p>
+<h4>
+    Los siguientes son algunos de los productos que comercializamos:
+</h4>
+<p>
+    (Para conocer las tallas y temporadas de cada uno de ellos, no dude en contactarnos.)
+</p></div></div></div><div data-options="" data-mhsection="products"><div class="bg"></div><div class="container"><div class="jekyll-content"> <div class="row">
+		{% for item in site.products %}
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<div class="card">
+					<div class="card-header">{% if page.lang == "en" %}{{ item.title }}{% else %}{{ item.titulo }}{% endif %}</div>
+					<div class="card-body">
+						<img src="{{ item.image }}" class="img-fluid" alt="{% if page.lang == &quot;en&quot; %}{{ item.title }}{% else %}{{ item.titulo }}{% endif %}">
+					</div>
+					<div class="card-footer">
+						<p><b>{% if page.lang == "en" %}Scientific name{% else %}Nombre cientifico{% endif %}: </b>{{ item.scientific }}</p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}			
+	</div></div></div></div>

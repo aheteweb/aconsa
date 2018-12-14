@@ -1,0 +1,16 @@
+- permalink_en: /
+  permalink_es: /es/inicio
+  title_en: Home
+  title_es: Inicio
+- permalink_en: /about
+  permalink_es: /es/nosotros
+  title_en: About
+  title_es: Nosotros
+- permalink_en: /products
+  permalink_es: /es/productos
+  title_en: Products
+  title_es: Productos
+- permalink_en: /contact
+  permalink_es: /es/contacto
+  title_en: Contact
+  title_es: Contacto

@@ -1,0 +1,62 @@
+<div class="container-fluid">
+	<!-- Main navigation -->
+	<nav id="mhNavbar" class="navbar navbar-expand navbar-light fixed-top calculating">
+	  <button class="btn btn btn-link navbar-toggle" type="button">
+	    <i class="fas fa-bars"></i>
+	  </button>
+
+		<div class="name">
+			<a href="index.html" class="logo">
+				<img src="https://res.cloudinary.com/aconsa/image/upload/v1522338737/mhadmin/mh_logo-name.png" alt="">
+			</a>
+		</div>
+
+	  <div class="navbar-collapse">
+	  	{% assign leftlimit = site.data.menu.size | divided_by: 2.0 | ceil %}
+			<ul class="navbar-nav navleftside">
+		  	{% for item in site.data.menu limit:leftlimit %}
+		  		{% assign currentTitle = page.lang | prepend: 'title_' %}
+		  		{% assign currentLink = page.lang | prepend: 'permalink_' %}
+					<li class="nav-item">
+        		<a class="nav-link" href="{{ item[currentLink] | prepend: site.baseurl }}">{{ item[currentTitle] | upcase }}</a>
+        	</li>
+		  	{% endfor %}
+	  	</ul>
+			<ul class="navbar-nav navrightside mr-auto">
+				{% for item in site.data.menu offset:leftlimit %}
+		      {% assign currentTitle = page.lang | prepend: 'title_' %}
+		      {% assign currentLink = page.lang | prepend: 'permalink_' %}
+					<li class="nav-item">
+        		<a class="nav-link" href="{{ item[currentLink] | prepend: site.baseurl }}">{{ item[currentTitle] | upcase }}</a>
+        	</li>
+		    {% endfor %}					
+			</ul>
+	  </div>
+		<ul class="navbar-nav social">
+			{% if site.facebook != '' %}
+	  		<li class="nav-item">
+	        <a class="nav-link" href="{{ site.facebook }}"><i class="fab fa-facebook"></i></a>
+	      </li>
+			{% endif %}
+			{% if site.twitter != '' %}
+				<li class="nav-item">
+	        <a class="nav-link" href="{{ site.twitter }}"><i class="fab fa-twitter-square"></i></a>
+	      </li>
+      {% endif %}
+      {% if site.instagram != '' %}
+				<li class="nav-item">
+	        <a class="nav-link" href="{{ site.instagram }}"><i class="fab fa-instagram"></i></a>
+	      </li>
+      {% endif %}
+		</ul>
+		<ul class="navbar-nav lang">
+			<li class="nav-item">
+        {% if page.lang == 'en' %}
+		    	<a class="nav-link" href="{{ page.altpermalink | prepend: site.baseurl }}"><img src="https://res.cloudinary.com/aconsa/image/upload/v1522338841/mhadmin/es.png" alt=""> <span class="lang-name">es</span></a>
+		    {% else %}
+		    	<a class="nav-link" href="{{ page.altpermalink | prepend: site.baseurl }}"><img src="https://res.cloudinary.com/aconsa/image/upload/v1522338841/mhadmin/en.png" alt=""> <span class="lang-name">en</span></a>
+		    {% endif %}	
+      </li>		 				
+		</ul>
+  </nav>
+</div>

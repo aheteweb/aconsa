@@ -1,0 +1,69 @@
+<footer id="mhFooter">
+	<div class="container">
+		<div class="row">
+			<div class="col-md description">
+				<img src="https://res.cloudinary.com/aconsa/image/upload/v1522338739/mhadmin/mh_logo.png" class="img-fluid reg" alt=""> 
+				<span>
+					{% if page.lang == 'es' %}
+				    {{ site.description.es }}
+				  {% else %}    
+				    {{ site.description.en }}
+				  {% endif %}					
+				</span>
+			</div>
+			<div class="col-md links">
+				<ul>
+					{% for item in site.data.menu %}
+			  		{% assign currentTitle = page.lang | prepend: 'title_' %}
+			  		{% assign currentLink = page.lang | prepend: 'permalink_' %}
+						<li>
+          		<a href="{{ item[currentLink] | prepend: site.baseurl }}">{{ item[currentTitle] | upcase }}</a>
+          	</li>
+			  	{% endfor %}					
+				</ul>
+			</div>
+			<div class="col-md contact">
+				<div class="address">
+					{% for item in site.address %}
+						<span class="icon"><i class="fas fa-map-marker-alt"></i></span> {{ item }}<br>
+					{% endfor %}
+				</div>
+				<div class="phone">
+					{% for item in site.phones %}
+						<span class="icon"><i class="fas fa-phone-volume"></i></span> {{ item }}<br>
+					{% endfor %}								
+				</div>
+				<div class="mail">
+					{% for item in site.emails %}
+						<span class="icon"><i class="fas fa-envelope"></i></span> {{ item }}<br>
+					{% endfor %}									
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="copy">
+			{% if page.lang == 'es' %}
+		    Copyright ©ACONSA, C.A. - Todos los derechos reservados.
+		  {% else %}    
+		    Copyright ©ACONSA, C.A. - All rights reserved.
+		  {% endif %}				
+		</div>
+			
+	</div>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->		
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>		
+<!-- slick js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<!-- lightbox js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+<!-- lightgallery js -->
+	<script src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.0.2/dist/js/lightgallery.min.js"></script>
+<!-- Firebase -->
+	<script src="{{ "/assets/js/fire.js" | prepend: site.baseurl }}"></script>
+<!-- custom js -->
+	<script src="{{ "/assets/js/custom.js" | prepend: site.baseurl }}"></script>
