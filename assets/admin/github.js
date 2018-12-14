@@ -52,7 +52,7 @@ console.log('github loaded')
 function Api(params) {
 	console.log(params.url)
 	dbRead({
-		path: 'aconsa',
+		path: 'users/' + firebase.auth().currentUser.uid,
 		action: function(snapshot){
 			$.ajax({
 				type: params.method,
