@@ -1,7 +1,7 @@
 console.log('custom js loaded')
 //Var declarations
-	//var baseUrl = 'https://www.aconsaca.com/';
-	var baseUrl = 'http://localhost:4000/';
+	var baseUrl = 'https://www.aconsaca.com/';
+	//var baseUrl = 'http://localhost:4000/';
 	var formAction = 'https://liveformhq.com/form/46238499-ae13-4125-9dfe-c36c9765e953';
 	//Navigation
 		var navLinksLW	= $('#mhNavbar .navleftside').width(); //Width of navigation left side items
